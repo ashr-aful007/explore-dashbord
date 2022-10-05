@@ -1,9 +1,8 @@
-import ReactTooltip from 'react-tooltip';
 import {FiSettings} from 'react-icons/fi';
 
 import './App.css';
-import { BrowserRouter } from 'react-router-dom';
-const activeMenu = true;
+import { BrowserRouter, Routes,Route } from 'react-router-dom';
+const activeMenu = false;
 
 
 function App() {
@@ -21,10 +20,26 @@ function App() {
             sidbar
           </div>
         ) : (
-          <div>
-            sidbar w-0
+          <div className='w-0 dark:bg-secondary-dark-bg'>
+            sidbar 
           </div>
         ) }
+        <div className={
+          `dark:bg-main-bg bg-main-bg min-h-screen w-full ${activeMenu ? 'md:ml-72 ' : 'flex-2'}`
+        }>
+          <div className='fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full'>
+            Navbar
+          </div>
+        </div>
+
+          <div>
+            <Routes>
+              <Route path='/' element='ECommerce'/>
+              <Route path='/ecommerce' element='ECommerce'/>
+            </Routes>
+          </div>
+
+
        </div>
       </BrowserRouter>
     </div>
